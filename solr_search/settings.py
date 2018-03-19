@@ -91,11 +91,12 @@ HAYSTACK_CONNECTIONS = {
     'default': {
         # For Solr:
         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
-        'URL': 'http://localhost:9001/solr/products',
+        'URL': 'http://localhost:8983/solr/products',
         'TIMEOUT': 60 * 5,
         'INCLUDE_SPELLING': True,
     }
 }
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 
 # Password validation

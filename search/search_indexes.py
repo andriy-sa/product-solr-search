@@ -10,6 +10,8 @@ class ProductIndex(indexes.SearchIndex, indexes.Indexable):
     description = indexes.CharField(model_attr='description')
     created_at = indexes.DateTimeField(model_attr='created_at')
 
+    name_auto = indexes.EdgeNgramField(model_attr='name')
+
     def get_model(self):
         return Product
 
