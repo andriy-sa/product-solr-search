@@ -1,8 +1,9 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import CharField, Serializer
 
 
-class ProductSerializer(ModelSerializer):
-    pass
+class ProductSearchRequestSerializer(Serializer):
+    q = CharField(required=False, allow_blank=True)
+    categories = CharField(required=False, allow_blank=True)
 
 
 def solr_products_serialize(solr_result):
