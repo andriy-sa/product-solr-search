@@ -33,4 +33,10 @@ class ProductsSearchAPIView(APIView):
 
         result = solr_products_serialize(result)
 
+        # facets = SearchQuerySet().models(Product).facet('category')
+        # print(facets.facet_counts())
+        # by where in
+        # data = SearchQuerySet().models(Product).filter(category__in=['CPU','Graphic Card'])
+        # result = solr_products_serialize(data)
+
         return Response(result, status.HTTP_200_OK)

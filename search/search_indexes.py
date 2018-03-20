@@ -5,10 +5,10 @@ from search.models import Product
 class ProductIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     name = indexes.CharField(model_attr='name', boost=1.125)
-    price = indexes.DecimalField(model_attr='price')
-    category = indexes.CharField(model_attr='category')
+    price = indexes.DecimalField(model_attr='price', indexed=False)
+    category = indexes.CharField(model_attr='category', faceted=True, indexed=False)
     description = indexes.CharField(model_attr='description')
-    created_at = indexes.DateTimeField(model_attr='created_at')
+    created_at = indexes.DateTimeField(model_attr='created_at', indexed=False)
 
     name_auto = indexes.EdgeNgramField(model_attr='name')
 
